@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Actividades UACM</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <img src="uacm_logo.png" alt="Logo UACM" class="img-fluid" style="max-width: 150px;">
+                </div>
+                <div class="col-md-10">
+                    <h1>Registro de Actividades UACM</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="container my-5">
+        <h2 class="text-center mb-4">Formulario de Registro</h2>
+        <form id="registration-form">
+            <div class="mb-3">
+                <label for="actividad" class="form-label">Selecciona una actividad:</label>
+                <select class="form-select" id="actividad" name="actividad" required>
+                    <option value="" disabled selected>Selecciona una actividad</option>
+                    <option value="futbol">Futbol</option>
+                    <option value="voleibol">Voleibol</option>
+                    <!-- Agrega más opciones según sea necesario -->
+                </select>
+            </div>
+
+            <div id="additional-fields" style="display: none;">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for "apellidos" class="form-label">Apellidos:</label>
+                    <input type="text" class="form-control" id="apellidos" name="apellidos" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="matricula" class="form-label">Matrícula:</label>
+                    <input type="text" class="form-control" id="matricula" name="matricula" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="correo" class="form-label">Correo Institucional:</label>
+                    <input type="email" class="form-control" id="correo" name="correo" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="exoneracion" class="form-label">Enlace de Descarga de Hoja de Exoneración (Google Drive):</label>
+                    <input type="url" class="form-control" id="exoneracion" name="exoneracion" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        </form>
+    </section>
+
+    <section class="container my-5">
+        <h2 class="text-center mb-4">Catálogo de Actividades</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Futbol - Días y Horarios</li>
+            <li class="list-group-item">Voleibol - Días y Horarios</li>
+            <!-- Agrega más actividades y detalles aquí -->
+        </ul>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2023 Universidad Autónoma de la Ciudad de México</p>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            $("#actividad").change(function() {
+                if (this.value !== "") {
+                    $("#additional-fields").show();
+                } else {
+                    $("#additional-fields").hide();
+                }
+            });
+
+            $("#registration-form").submit(function (event) {
+                event.preventDefault();
+                // Agregar código para procesar el formulario aquí.
+                // Puedes utilizar AJAX para enviar los datos al servidor.
+            });
+        });
+    </script>
+</body>
+</html>
